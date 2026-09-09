@@ -40,7 +40,7 @@ Commit: git commit adalah sebuah aksi dimana aksi tersebut menyimpan perubahan k
 Push: git push adalah sebuah aksi dimana aksi tersebut "mengunggah" hasil commit ke repository
 
 ## JSX vs TSX
-(tulis di sini)
+.jsx merupakan extension dari file JavaScript yang dapat menuliskan sintaks HTML di dalam kodenya. Sedangkan untuk .tsx sendiri merupakan extension dari file TypeScript yang support .jsx beserta dengan beberpa upgrade seperti adanya type checking sehingga error dapat dideteksi sebelum runtime.
 
 ## Kenapa Union Type untuk Status
 (tulis di sini)
