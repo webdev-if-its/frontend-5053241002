@@ -27,12 +27,13 @@ Kalau dosen memperbaiki sesuatu di pertemuan yang sudah dirilis (mis. ada bug di
 Bagian di bawah ini **isi bertahap** sesuai level yang sedang kalian kerjakan (lihat `pertemuan-XX/SOAL.md`) — heading-nya dicek otomatis, jangan diganti namanya.
 
 ## Struktur Project
-(tulis di sini)
+
+File main.tsx sebagai entry point dari project ini, yang mana menghubungkan React ke elemen DOM HTML. Sedangkan untuk App.tsx merupakan file component yang dapat dipanggil oleh main.tsx dengan cara diimport terlebih dahulu baru dipanggil dengan `<App />`
 
 ## Identitas
-- Nama: (tulis di sini)
-- NRP: (tulis di sini)
-- Kelas: (tulis di sini)
+- Nama: Krisna Anugrah Arianto Heru Putro
+- NRP: 5053241002
+- Kelas: M
 
 ## Commit vs Push
 (tulis di sini)
