@@ -36,7 +36,8 @@ File main.tsx sebagai entry point dari project ini, yang mana menghubungkan Reac
 - Kelas: M
 
 ## Commit vs Push
-(tulis di sini)
+Commit: git commit adalah sebuah aksi dimana aksi tersebut menyimpan perubahan kode secara lokal atau di komputer.
+Push: git push adalah sebuah aksi dimana aksi tersebut "mengunggah" hasil commit ke repository
 
 ## JSX vs TSX
 (tulis di sini)
