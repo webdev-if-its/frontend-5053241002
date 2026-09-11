@@ -4,7 +4,7 @@
 export function Identitas({ nama }: { nama: string }) {
   return (
     <>
-      <h2>Nama: {nama}</h2>
+      <h2>Identitas: {nama}</h2>
       <p>Senang bertemu denganmu!</p>
     </>
   )
