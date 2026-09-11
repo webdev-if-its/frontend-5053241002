@@ -43,7 +43,7 @@ Push: git push adalah sebuah aksi dimana aksi tersebut "mengunggah" hasil commit
 .jsx merupakan extension dari file JavaScript yang dapat menuliskan sintaks HTML di dalam kodenya. Sedangkan untuk .tsx sendiri merupakan extension dari file TypeScript yang support .jsx beserta dengan beberpa upgrade seperti adanya type checking sehingga error dapat dideteksi sebelum runtime.
 
 ## Kenapa Union Type untuk Status
-(tulis di sini)
+Karena dengan menggunakan union type dapat membantu untuk membatasi input. Sehingga input yang diperbolehkan hanya input yang terdaftar pada opsi yang valid. Union type dapat mencegah typo dan lebih aman daripada menggunakan string biasa.
 
 ## Refleksi
 (tulis di sini)
