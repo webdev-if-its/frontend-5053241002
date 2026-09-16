@@ -46,4 +46,4 @@ Push: git push adalah sebuah aksi dimana aksi tersebut "mengunggah" hasil commit
 Karena dengan menggunakan union type dapat membantu untuk membatasi input. Sehingga input yang diperbolehkan hanya input yang terdaftar pada opsi yang valid. Union type dapat mencegah typo dan lebih aman daripada menggunakan string biasa.
 
 ## Refleksi
-(tulis di sini)
+Yang mengubah cara berbikir saya dari konsep pada pertemuan ini adalah kita dapat menyusun komponan HTML menggunakan file dari tsx, serta setiap komponen dan props bisa dibuat menjadi modular sehingga bisa digunakan kembali pada halaman HTML yang lain.
