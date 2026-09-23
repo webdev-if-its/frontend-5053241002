@@ -47,3 +47,6 @@ Karena dengan menggunakan union type dapat membantu untuk membatasi input. Sehin
 
 ## Refleksi
 Yang mengubah cara berbikir saya dari konsep pada pertemuan ini adalah kita dapat menyusun komponan HTML menggunakan file dari tsx, serta setiap komponen dan props bisa dibuat menjadi modular sehingga bisa digunakan kembali pada halaman HTML yang lain.
+
+## Refleksi Pertemuan 3
+Hal yang paling mengubah cara berpikirku adalah penggunaan ternary dan && langsung di dalam JSX untuk mengatur alur antarmuka. Kemudian Tailwind CSS, sangat mempermudah dalam pembuatan komponen reusable, dibanding membuat hierarki class BEM di CSS biasa.
