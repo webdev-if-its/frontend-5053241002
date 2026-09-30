@@ -3,6 +3,19 @@
 // "+" dan "-". Tombol "+" harus disabled saat angka sudah = max, tombol "-"
 // harus disabled saat angka sudah = min.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function PenghitungBatas(props: any) {
-  return <p>TODO</p>
+import { useState } from "react";
+export function PenghitungBatas({min, max}: { min: number; max: number }) {
+  const [angka, setAngka] = useState<number>(min);
+
+  return(
+    <div>
+      <p>Nilai: {angka}</p>
+      <button onClick={() => setAngka(angka + 1)} disabled={angka >= max}>
+        +
+      </button>
+      <button onClick={() => setAngka(angka - 1)} disabled={angka <= min}>
+        -
+      </button>
+    </div>
+  );
 }
