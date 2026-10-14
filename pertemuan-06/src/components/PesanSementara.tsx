@@ -5,6 +5,24 @@
 // (timer lama harus dibersihkan). Saat komponen dilepas, timer harus ikut
 // dibersihkan.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function PesanSementara(props: any) {
-  return <p>TODO</p>
+import { useEffect, useState } from "react"
+export function PesanSementara(props: { pesan: string; durasi: number }) {
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    setVisible(true)
+    const timeout = setTimeout(() => {
+      setVisible(false)
+    }, props.durasi)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [props.pesan, props.durasi])
+
+  if (!visible) {
+    return null
+  }
+
+  return <p>{props.pesan}</p>
 }

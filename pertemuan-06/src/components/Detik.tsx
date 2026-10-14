@@ -5,7 +5,7 @@
 // komponen dilepas (unmount).
 // Lihat SOAL.md untuk kontrak lengkap.
 import {useEffect, useState} from "react"
-export function Detik(props: any) {
+export function Detik() {
   const [n, setN] = useState(0)
 
   useEffect(() => {
