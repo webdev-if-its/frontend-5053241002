@@ -6,23 +6,23 @@
 // dibersihkan.
 // Lihat SOAL.md untuk kontrak lengkap.
 import { useEffect, useState } from "react"
-export function PesanSementara(props: { pesan: string; durasi: number }) {
+export function PesanSementara({ pesan, durasi }: { pesan   : string; durasi: number }) {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     setVisible(true)
     const timeout = setTimeout(() => {
       setVisible(false)
-    }, props.durasi)
+    }, durasi)
 
     return () => {
       clearTimeout(timeout)
     }
-  }, [props.pesan, props.durasi])
+  }, [pesan, durasi])
 
   if (!visible) {
     return null
   }
 
-  return <p>{props.pesan}</p>
+  return <p>{pesan}</p>
 }
