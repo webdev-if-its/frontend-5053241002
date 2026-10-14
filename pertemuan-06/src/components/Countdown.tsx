@@ -5,6 +5,27 @@
 // Saat komponen dilepas di tengah jalan, timer harus dibersihkan dan
 // onSelesai tidak boleh terpanggil.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function Countdown(props: any) {
-  return <p>TODO</p>
+import { useEffect, useState, useRef } from "react"
+export function Countdown({ detikAwal, onSelesai }: { detikAwal: number; onSelesai: () => void }) {
+  const [sisa, setSisa] = useState(detikAwal)
+  const dipanggil = useRef(false)
+
+  useEffect(() => {
+    if (sisa <= 0) {
+      if (!dipanggil.current) {
+        onSelesai()
+        dipanggil.current = true
+      }
+      return
+    }
+
+    const timer = setInterval(() => {
+      setSisa((prev) => prev - 1)
+    }, 1000)
+    return () => {
+      clearInterval(timer)
+    }
+  }, [sisa, onSelesai])
+
+  return <p>Sisa: {sisa}</p>
 }
