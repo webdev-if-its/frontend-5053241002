@@ -50,3 +50,8 @@ Yang mengubah cara berbikir saya dari konsep pada pertemuan ini adalah kita dapa
 
 ## Refleksi Pertemuan 3
 Hal yang paling mengubah cara berpikirku adalah penggunaan ternary dan && langsung di dalam JSX untuk mengatur alur antarmuka. Kemudian Tailwind CSS, sangat mempermudah dalam pembuatan komponen reusable, dibanding membuat hierarki class BEM di CSS biasa.
+
+## Refleksi Pertemuan 4
+Perbedaan variabel biasa dengan state adalah variabel biasa tidak akan memicu proses render ulang komponen oleh React apabila nilainya berubah. Sedangkan pada state kebalikannya, jika ada variabel yang berubah, maka akan memicu proses render ulang.
+
+Properti `e.target.value` dari input HTML memiliki tipe data string meskipun input tersebut memiliki properti `type="number"`. Sehingga nilai tersebut harus diubah menjadi `Number()` agar dapat dilakukan operasi matematis. Apabila tidak diubah maka akan diperlakukan seperti teks biasa. Sehingga jika ada operasi `+` teks akan digabungkan, bukan dilakukan operasi penjumlahan.
