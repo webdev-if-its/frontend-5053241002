@@ -5,6 +5,22 @@
 // Setiap teks berubah, simpan ke localStorage.setItem("catatan", teks) di
 // dalam useEffect.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function CatatanKecil(props: any) {
-  return <p>TODO</p>
+import { useEffect, useState } from "react"
+export function CatatanKecil() {
+  const [teks, setTeks] = useState(() => {
+    return localStorage.getItem("catatan") ?? ""
+  })
+
+  useEffect(() => {
+    localStorage.setItem("catatan", teks)
+  }, [teks])
+
+  return (
+    <label>
+      Catatan
+      <textarea 
+      value={teks} 
+      onChange={(e) => setTeks(e.target.value)} />
+    </label>
+  )
 }
