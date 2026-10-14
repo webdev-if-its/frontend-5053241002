@@ -55,3 +55,9 @@ Hal yang paling mengubah cara berpikirku adalah penggunaan ternary dan && langsu
 Perbedaan variabel biasa dengan state adalah variabel biasa tidak akan memicu proses render ulang komponen oleh React apabila nilainya berubah. Sedangkan pada state kebalikannya, jika ada variabel yang berubah, maka akan memicu proses render ulang.
 
 Properti `e.target.value` dari input HTML memiliki tipe data string meskipun input tersebut memiliki properti `type="number"`. Sehingga nilai tersebut harus diubah menjadi `Number()` agar dapat dilakukan operasi matematis. Apabila tidak diubah maka akan diperlakukan seperti teks biasa. Sehingga jika ada operasi `+` teks akan digabungkan, bukan dilakukan operasi penjumlahan.
+
+## Refleksi Pertemuan 6
+
+Efek yang memasang timer atau listener wajib memiliki cleanup dikarenakan unuk menghindari memory leak. Jika tidak ada clean up, maka timer lama akan terus berjalan dan menumpuk pada memori.
+
+`console.log` muncul dua kali dalam `StrictMode` dikarenakan pada React menduplikasi pemanggilan komponen (mount > unmount > mount) agar memudahkan developer untuk mendeteksi tumpukan bug yang ada.
