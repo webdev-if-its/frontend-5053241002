@@ -19,8 +19,22 @@ export async function getTodos(): Promise<Todo[]> {
 }
 
 // Level 3
-export async function addTodo(title: any): Promise<any> {
-  throw new Error('TODO')
+export async function addTodo(title: string): Promise<Todo> {
+  const res = await fetch (BASE_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title,
+      completed: false,
+      userId: 1
+    })
+  })
+   if(!res.ok){
+    throw new Error('HTTP error! gagal menambahkan todo')
+  }
+  return res.json()
 }
 
 // Level 4
