@@ -10,6 +10,49 @@
 //   state dengan HASIL RESPONS,
 // - klik "Hapus": panggil hapusTodo(id), lalu buang todo itu dari state.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function AplikasiTodoApi(props: any) {
-  return <p>TODO</p>
+import { useEffect, useState, FormEvent } from "react"
+import { getTodos, addTodo } from "../api/todos"
+import type { Todo } from "../types"
+
+export function AplikasiTodoApi() {
+  const [todos, setTodos] = useState<Todo[]>([])
+  const [baru, setBaru] = useState("")
+
+  useEffect(() => {
+    getTodos().then(setTodos).catch(console.error)
+  }, [])
+
+  async function handleTambah(e: FormEvent) {
+    e.preventDefault()
+    try {
+      const res = await addTodo(baru)
+      setTodos((prev) => [...prev, res])
+      setBaru("")
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  return (
+    <div>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <label>
+              <input type="checkbox" checked={todo.completed} readOnly />
+              {todo.title}
+            </label>
+            <button>Hapus</button>
+          </li>
+        ))}
+      </ul>
+      <form onSubmit={handleTambah}>
+        <label>
+          Todo baru
+          <input value={baru} onChange={(e) => setBaru(e.target.value)} />
+        </label>
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+  )
 }
