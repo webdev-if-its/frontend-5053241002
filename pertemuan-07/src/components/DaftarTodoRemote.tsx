@@ -14,6 +14,7 @@ import type { Todo } from "../types"
 export function DaftarTodoRemote() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     getTodos()
@@ -21,10 +22,18 @@ export function DaftarTodoRemote() {
         setTodos(data)
         setLoading(false)
       })
-    }, [])
+      .catch((err) => {
+        setError(err.message)
+        setLoading(false)
+      })
+  }, [])
 
     if (loading) {
       return <p>Memuat...</p>
+    }
+
+    if (error) {
+      return <p>Terjadi error: {error}</p>
     }
 
     return (
@@ -35,3 +44,4 @@ export function DaftarTodoRemote() {
       </ul>
     )
 }
+
