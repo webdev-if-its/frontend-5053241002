@@ -10,8 +10,8 @@
 //   state dengan HASIL RESPONS,
 // - klik "Hapus": panggil hapusTodo(id), lalu buang todo itu dari state.
 // Lihat SOAL.md untuk kontrak lengkap.
-import { useEffect, useState, FormEvent } from "react"
-import { getTodos, addTodo } from "../api/todos"
+import { useEffect, useState, type FormEvent } from "react"
+import { getTodos, addTodo, updateTodo, hapusTodo } from "../api/todos"
 import type { Todo } from "../types"
 
 export function AplikasiTodoApi() {
@@ -24,10 +24,30 @@ export function AplikasiTodoApi() {
 
   async function handleTambah(e: FormEvent) {
     e.preventDefault()
+    if (!baru.trim()) return
+
     try {
       const res = await addTodo(baru)
       setTodos((prev) => [...prev, res])
       setBaru("")
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  async function handleToggle(id: number, completed: boolean) {
+    try {
+      const res = await updateTodo(id, !completed)
+      setTodos((prev) => prev.map((todo) => (todo.id === id ? res : todo)))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  async function handleHapus(id: number) {
+    try {
+      await hapusTodo(id)
+      setTodos((prev) => prev.filter((todo) => todo.id !== id))
     } catch (err) {
       console.error(err)
     }
@@ -39,10 +59,16 @@ export function AplikasiTodoApi() {
         {todos.map((todo) => (
           <li key={todo.id}>
             <label>
-              <input type="checkbox" checked={todo.completed} readOnly />
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => handleToggle(todo.id, todo.completed)}
+              />
               {todo.title}
             </label>
-            <button>Hapus</button>
+            <button type="button" onClick={() => handleHapus(todo.id)}>
+              Hapus
+            </button>
           </li>
         ))}
       </ul>
