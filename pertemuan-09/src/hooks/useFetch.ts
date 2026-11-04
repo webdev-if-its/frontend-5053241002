@@ -16,6 +16,12 @@ export function useFetch<T>(url: string) {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    let active = true
+
+    setLoading(true)
+    setData(null)
+    setError(null)
+
     fetch(url)
       .then((res) => {
         if (!res.ok) {
@@ -24,13 +30,21 @@ export function useFetch<T>(url: string) {
         return res.json()
       })
       .then((json: T) => {
-        setData(json)
-        setLoading(false)
+        if (active) {
+          setData(json)
+          setLoading(false)
+        }
       })
       .catch((err: unknown) => {
-        setError(err instanceof Error ? err.message : String(err))
-        setLoading(false)
+        if (active) {
+          setError(err instanceof Error ? err.message : String(err))
+          setLoading(false)
+        }
       })
+
+    return () => {
+      active = false
+    }
   }, [url])
 
   return { data, loading, error }
