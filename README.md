@@ -64,5 +64,10 @@ Efek yang memasang timer atau listener wajib memiliki cleanup dikarenakan unuk m
 
 ## Refleksi Pertemuan 9
 Keuntungan dari memisahkan fungsi API dari komponen adalah menjaga kerapian kode serta memudahkan ketika pemeliharaan nantinya. Jadi komponen UI hanya menangani state dan render tampilan, tanpa harus mengetahui detail dari API.
-
 Fetch tidak otomatis melempar error pada kondisi 404 dan 500 adalah karena kondisi 404 dan 500 browser masih terhubung dengan server. Fetch hanya akan melempar error jika browser tidak terhubung lagi ke server.
+
+
+## Refleksi Pertemuan 10
+Props digunakan ketika data yang menuju langsung ke komponen child serta bersifat spesifik untuk komponen tersebut. Sedangkan React Context digunakan saat data universal atau data yang dibutuhkan oleh banyak komponen untuk menghindari prop drilling.
+
+Mengenai useFetch, dua komponen yang sama-sama memanggil custom hook tersebut tidak berbagi data karena setiap pemanggilan custom hook menciptakan instance state lokalnya sendiri. Custom hook hanya membagikan logika, bukan membagikan satu penampung data atau state yang sama di antara komponen.

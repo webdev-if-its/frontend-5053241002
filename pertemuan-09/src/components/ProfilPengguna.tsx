@@ -8,6 +8,38 @@
 // Isi: "Memuat..." selama loading; kalau error "Terjadi error: {pesan}"; kalau
 // sukses tampilkan name dan email pengguna.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function ProfilPengguna(props: any) {
-  return <section>TODO</section>
+import { useTema } from '../context/TemaContext'
+import { useFetch } from '../hooks/useFetch'
+import type { User } from '../types'
+
+export function ProfilPengguna() {
+  const { tema } = useTema()
+  const { data, loading, error } = useFetch<User>(
+    'https://jsonplaceholder.typicode.com/users/1'
+  )
+
+  const rootClass = tema === 'terang' ? 'bg-white' : 'bg-slate-900'
+
+  if (loading) {
+    return (
+      <section className={rootClass}>
+        <p>Memuat...</p>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className={rootClass}>
+        <p>Terjadi error: {error}</p>
+      </section>
+    )
+  }
+
+  return (
+    <section className={rootClass}>
+      <h2>{data?.name}</h2>
+      <p>{data?.email}</p>
+    </section>
+  )
 }
