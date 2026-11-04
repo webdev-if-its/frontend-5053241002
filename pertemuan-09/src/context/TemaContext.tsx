@@ -33,5 +33,8 @@ export function TemaProvider({ children }: { children: ReactNode }) {
 
 export function useTema(): TemaContextType {
   const context = useContext(TemaContext)
-  return context as TemaContextType
+  if (!context) {
+    throw new Error('useTema harus digunakan di dalam TemaProvider')
+  }
+  return context
 }
