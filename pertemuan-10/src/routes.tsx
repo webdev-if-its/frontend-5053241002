@@ -17,6 +17,8 @@
 // Beri tipe RouteObject (impor dari 'react-router-dom') — lihat SOAL.md.
 import type { RouteObject } from 'react-router-dom'
 import { Beranda } from './pages/Beranda'
+import { DaftarProduk } from './pages/DaftarProduk'
+import { DetailProduk } from './pages/DetailProduk'
 import { Tentang } from './pages/Tentang'
 
 export const routes: RouteObject[] = [
@@ -27,6 +29,14 @@ export const routes: RouteObject[] = [
   {
     path: '/tentang',
     element: <Tentang />,
+  },
+  {
+    path: '/produk',
+    element: <DaftarProduk />,
+  },
+  {
+    path: '/produk/:id',
+    element: <DetailProduk />,
   },
 ]
 
