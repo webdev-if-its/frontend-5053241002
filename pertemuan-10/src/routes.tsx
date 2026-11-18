@@ -17,6 +17,8 @@
 // Beri tipe RouteObject (impor dari 'react-router-dom') — lihat SOAL.md.
 import type { RouteObject } from 'react-router-dom'
 import { DashboardLayout } from './components/DashboardLayout'
+import { ErrorPage } from './components/ErrorPage'
+import { RootLayout } from './components/RootLayout'
 import { Beranda } from './pages/Beranda'
 import { DaftarPengguna } from './pages/DaftarPengguna'
 import { DaftarProduk } from './pages/DaftarProduk'
@@ -47,19 +49,26 @@ export const dashboardRoute: RouteObject = {
 export const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Beranda />,
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Beranda />,
+      },
+      {
+        path: 'tentang',
+        element: <Tentang />,
+      },
+      {
+        path: 'produk',
+        element: <DaftarProduk />,
+      },
+      {
+        path: 'produk/:id',
+        element: <DetailProduk />,
+      },
+      dashboardRoute,
+    ],
   },
-  {
-    path: '/tentang',
-    element: <Tentang />,
-  },
-  {
-    path: '/produk',
-    element: <DaftarProduk />,
-  },
-  {
-    path: '/produk/:id',
-    element: <DetailProduk />,
-  },
-  dashboardRoute,
 ]
