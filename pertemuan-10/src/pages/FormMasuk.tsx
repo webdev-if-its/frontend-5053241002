@@ -3,6 +3,25 @@
 // - submit: cegah reload, lalu pindah ke "/dashboard" lewat useNavigate,
 // - "Kembali": kembali satu langkah di history (navigate(-1)).
 // Lihat SOAL.md untuk kontrak lengkap.
-export function FormMasuk(props: any) {
-  return <p>TODO</p>
+import type { FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+export function FormMasuk() {
+  const navigate = useNavigate()
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    navigate('/dashboard')
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="nama">Nama</label>
+      <input id="nama" type="text" />
+      <button type="submit">Masuk</button>
+      <button type="button" onClick={() => navigate(-1)}>
+        Kembali
+      </button>
+    </form>
+  )
 }

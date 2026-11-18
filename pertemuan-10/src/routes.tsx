@@ -18,6 +18,7 @@
 import type { RouteObject } from 'react-router-dom'
 import { Beranda } from './pages/Beranda'
 import { Tentang } from './pages/Tentang'
+
 export const routes: RouteObject[] = [
   {
     path: '/',
@@ -26,7 +27,7 @@ export const routes: RouteObject[] = [
   {
     path: '/tentang',
     element: <Tentang />,
-  }
+  },
 ]
 
 export const dashboardRoute: any = { path: '/dashboard' }
