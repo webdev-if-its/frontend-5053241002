@@ -20,6 +20,7 @@ import { DashboardLayout } from './components/DashboardLayout'
 import { Beranda } from './pages/Beranda'
 import { DaftarPengguna } from './pages/DaftarPengguna'
 import { DaftarProduk } from './pages/DaftarProduk'
+import { DetailPengguna } from './pages/DetailPengguna'
 import { DetailProduk } from './pages/DetailProduk'
 import { Ringkasan } from './pages/Ringkasan'
 import { Tentang } from './pages/Tentang'
@@ -35,6 +36,10 @@ export const dashboardRoute: RouteObject = {
     {
       path: 'pengguna',
       element: <DaftarPengguna />,
+    },
+    {
+      path: 'pengguna/:id',
+      element: <DetailPengguna />,
     },
   ],
 }
@@ -58,4 +63,3 @@ export const routes: RouteObject[] = [
   },
   dashboardRoute,
 ]
-
